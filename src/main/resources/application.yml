@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:oracle:thin:@localhost:1521:orcl
-    username: user de tu bd
-    password: password de tu bd
+    username: DAW1
+    password: 123
     driverClassName: oracle.jdbc.driver.OracleDriver
 jpa:
   show-sql: true
