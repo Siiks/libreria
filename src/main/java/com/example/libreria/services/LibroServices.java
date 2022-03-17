@@ -1,25 +1,33 @@
 package com.example.libreria.services;
 
+import com.example.libreria.model.Autor;
+import com.example.libreria.model.Categoria;
 import com.example.libreria.model.Libro;
+import com.example.libreria.repo.AutorRepo;
 import com.example.libreria.repo.LibroRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-
 @Transactional
 @Service
 public class LibroServices {
-    private final LibroRepo libroRepo;
-    private final String error = "No se ha encontrado al Libro";
 
     @Autowired
-    public LibroServices(LibroRepo libroRepo){
-        this.libroRepo = libroRepo;
-    }
+    private  LibroRepo libroRepo;
 
-    public Libro addLibro(Libro libro){
+    @Autowired
+    private AutorRepo autor;
+
+    @Autowired
+    private AutorServices autorServices;
+
+    private final String error = "No se ha encontrado al Libro";
+
+    public Libro addLibro(Libro libro, String dni){
+        Autor autor = autorServices.findAutorByDni(dni);
+        libro.setAutor(autor);
         return libroRepo.save(libro);
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @Transactional
 public class AutorServices {
-    private final AutorRepo autorRepo;
+    private AutorRepo autorRepo;
     private final String error = "No se ha encontrado al autor";
 
     @Autowired

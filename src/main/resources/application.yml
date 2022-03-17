@@ -1,7 +1,7 @@
 spring:
   datasource:
     url: jdbc:oracle:thin:@localhost:1521:orcl
-    username: DAW1
+    username: adi
     password: 123
     driverClassName: oracle.jdbc.driver.OracleDriver
 jpa:

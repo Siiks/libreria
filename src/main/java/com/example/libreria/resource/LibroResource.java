@@ -28,8 +28,8 @@ public class LibroResource {
         return new ResponseEntity<>(libro, HttpStatus.OK);
     }
     @PostMapping("/add")
-    public ResponseEntity<Libro> addLibro(@RequestBody Libro libro){
-        Libro newLibro = libroServices.addLibro(libro);
+    public ResponseEntity<Libro> addLibro(@RequestBody Libro libro, String dni){
+        Libro newLibro = libroServices.addLibro(libro, dni);
         return new ResponseEntity<>(newLibro, HttpStatus.CREATED);
     }
     @PutMapping("/update/{id}")

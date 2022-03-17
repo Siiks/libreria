@@ -12,7 +12,7 @@ import java.util.List;
 @Transactional
 @Service
     public class CategoriaServices{
-        private final CategoriaRepo categoriaRepo;
+        private CategoriaRepo categoriaRepo;
         private final String error = "No se ha encontrado al Categoria";
 
         @Autowired

@@ -33,6 +33,5 @@ public class Autor implements Serializable {
     private String telefono;
     @Getter
     @Setter
-    @Email
     private String email;
 }
