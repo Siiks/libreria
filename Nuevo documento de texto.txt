@@ -1,0 +1,159 @@
+create table Autor(
+dni varchar(9) primary key,
+nombre varchar(20) not null,
+apellido1 varchar(20) not null,
+apellido2 varchar(20),
+telefono varchar(20),
+email varchar(55)
+);
+
+insert into Autor
+values ('3213733S','Florencio','Nevado','Nevado@gmail.com');
+insert into Autor
+values('3213213L','Pascual','Codina','Cantón','Cantón@gmail.com');
+insert into Autor
+values('3555513L','Amparo','Huguet','Heredia','Heredia@gmail.com');
+insert into Autor
+values('4445513L','Candelaria','Amador','Iborra','Iborra@gmail.com');
+insert into Autor
+values('7775513L','Inmaculada','Ayllón','Pomares','Pomares@gmail.com');
+insert into Autor
+values('1111513L','Clímaco','Sanjuan','Álvarez ','Sanjuan@gmail.com');
+insert into Autor
+values('2221513L','Tiburcio ','Soler','Lozano','Soler@gmail.com');
+insert into Autor
+values('9991513L','Isidro','Ribes','Viana','Ribes@gmail.com');
+insert into Autor
+values('7654321L','Crescencia','Galán','Viana','Galán@gmail.com');
+insert into Autor
+values('8787871L','Renata','Asensio','Izaguirre','Izaguirre@gmail.com');
+
+create table Libro(
+id int generated as identity(start with 1 increment by 1) primary key,
+titulo varchar(50) not null,
+edicion int not null,
+id_Autor varchar(8) not null,
+id_categoria int,
+constraint FK_AUTOR foreign key (id_Autor) references Autor(dni),
+constraint FK_CATEGORIA foreign key(id_Categoria) references Categoria(id)
+);
+
+
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Rescue At The Fog' ,1 , '1234567S', 1);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Pleasing The Angels' ,2 , '1234567S', 1);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Eliminating The Animals' ,3 , '1234567S', 1);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Signs In History' ,1 , '1234567S', 1);
+
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Separated By The Slaves' ,1 , '3213213L', 1);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Learning From The Depths' ,2 , '3213213L', 2);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Lurking In My Destiny' ,3 , '3213213L', 2);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Running In The Town' ,1 , '3213213L', 1);
+--Run
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Leading The Fog' ,1 , '3555513L', 3);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Hurt By The Ashes' ,2 , '3555513L', 3);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Searching For My Family' ,3 , '3555513L', 5);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Belonging To The Past' ,1 , '3555513L', 4);
+
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Chasing The Immortals' ,1 , '4445513L', 5);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Going To The Beginning  ' ,2 , '4445513L', 6);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Sailing Into The Champions' ,3 , '4445513L', 6);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Choking In History' ,1 , '4445513L', 4);
+
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Praise Nightmares' ,1 , '7775513L', 11);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Death At The World' ,2 , '7775513L', 11);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Chasing The East' ,3 , '7775513L', 11);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Visiting The King' ,1 , '7775513L', 4);
+
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Battling In The Nation' ,1 , '1111513L', 10);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Eating At Nature' ,2 , '1111513L', 10);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Eliminating Technology' ,3 , '1111513L', 8);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Invited By The Dark' ,1 , '1111513L', 4);
+
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Blood In My Dreams' ,1 , '7654321L', 9);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Force Of The Animals' ,2 , '7654321L', 9);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Screams At The Depths' ,2 , '7654321L', 9);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Still Breathing In The Universe' ,1 , '7654321L', 10);
+
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Commanding The Fog' ,1 , '9991513L', 8);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Forsaken By The Titans' ,2 , '9991513L', 8);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Hunting The Elements' ,2 , '9991513L', 11);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Traces In The Depths' ,1 , '9991513L', 11);
+
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Answering The Moon' ,13 , '2221513L', 2);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Healing The Beginning' ,2 , '2221513L', 1);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Inventing Nightmares' ,2 , '2221513L', 8);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Promises Of The Universe' ,1 , '2221513L', 9);
+
+insert into Libro(titulo, edicion, id_autor, id_Categoria)
+values('Guarded By My Future' ,13 , '8787871L', 5);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Remember The Depths' ,2 , '8787871L', 6);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Scared At The Sun' ,2 , '8787871L', 2);
+insert into Libro(titulo, edicion, id_Autor, id_Categoria)
+values('Crying In The Abyss' ,1 , '8787871L', 8);
+
+
+create table Categoria(
+id int generated as identity(start with 1 increment by 1) primary key,
+descripcion varchar(20)
+);
+
+insert into Categoria(descripcion)
+values('Científicos');
+insert into Categoria(descripcion)
+values('Literatura');
+insert into Categoria(descripcion)
+values('Biografías');
+insert into Categoria(descripcion)
+values('Lingüísticos');
+insert into Categoria(descripcion)
+values('De viaje');
+insert into Categoria(descripcion)
+values('Libro de texto');
+insert into Categoria(descripcion)
+values('Romanticos');
+insert into Categoria(descripcion)
+values('Referencia');
+insert into Categoria(descripcion)
+values('Fantasia');
+insert into Categoria(descripcion)
+values('Novela');
+
+
