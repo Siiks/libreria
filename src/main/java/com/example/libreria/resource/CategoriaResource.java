@@ -24,8 +24,8 @@ public class CategoriaResource{
         return new ResponseEntity<>(categorias, HttpStatus.OK);
     }
     @GetMapping("/getById/{id}")
-    public ResponseEntity<Categoria> getCategoriasById(@PathVariable("id") int id){
-        Categoria categoria = categoriaServices.findCategoriaByDni(id);
+    public ResponseEntity<Categoria> getCategoriasById(@PathVariable("id") Long id){
+        Categoria categoria = categoriaServices.findCategoriaById(id);
         return new ResponseEntity<>(categoria, HttpStatus.OK);
     }
     @PostMapping("/add")

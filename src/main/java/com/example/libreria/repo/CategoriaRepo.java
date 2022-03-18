@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-public interface CategoriaRepo extends JpaRepository<Categoria, Integer> {
+public interface CategoriaRepo extends JpaRepository<Categoria, Long> {
     void deleteCategoriaById(int id);
 
-    Optional<Categoria> findCategoriaById(Integer integer);
+    Optional<Categoria> findCategoriaById(Long id);
 }

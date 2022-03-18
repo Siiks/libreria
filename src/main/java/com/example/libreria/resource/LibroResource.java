@@ -23,13 +23,13 @@ public class LibroResource {
         return new ResponseEntity<>(libros, HttpStatus.OK);
     }
     @GetMapping("getById/{id}")
-    public ResponseEntity<Libro> getLibroById(@PathVariable("id") int id){
+    public ResponseEntity<Libro> getLibroById(@PathVariable("id") Long id){
         Libro libro = libroServices.findLibroById(id);
         return new ResponseEntity<>(libro, HttpStatus.OK);
     }
     @PostMapping("/add")
-    public ResponseEntity<Libro> addLibro(@RequestBody Libro libro, String dni){
-        Libro newLibro = libroServices.addLibro(libro, dni);
+    public ResponseEntity<Libro> addLibro(@RequestBody Libro libro){
+        Libro newLibro = libroServices.addLibro(libro);
         return new ResponseEntity<>(newLibro, HttpStatus.CREATED);
     }
     @PutMapping("/update/{id}")
@@ -38,7 +38,7 @@ public class LibroResource {
         return new ResponseEntity<>(updateLibro, HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Libro> deleteLibro(@PathVariable("id") int id){
+    public ResponseEntity<Libro> deleteLibro(@PathVariable("id") Long id){
         libroServices.deleteLibro(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -48,7 +48,7 @@ public class LibroResource {
         return new ResponseEntity<>(libros, HttpStatus.OK);
     }
     @GetMapping("/categoria/{id}")
-    public ResponseEntity<List<Libro>> getLibrosMismaCategoria(@PathVariable("id") int id){
+    public ResponseEntity<List<Libro>> getLibrosMismaCategoria(@PathVariable("id") Long id){
         List<Libro> libros = libroServices.findLibroByCategoriaId(id);
         return new ResponseEntity<>(libros, HttpStatus.OK);
     }

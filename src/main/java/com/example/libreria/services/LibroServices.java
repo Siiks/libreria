@@ -1,9 +1,6 @@
 package com.example.libreria.services;
 
-import com.example.libreria.model.Autor;
-import com.example.libreria.model.Categoria;
 import com.example.libreria.model.Libro;
-import com.example.libreria.repo.AutorRepo;
 import com.example.libreria.repo.LibroRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,21 +10,15 @@ import java.util.List;
 @Transactional
 @Service
 public class LibroServices {
-
-    @Autowired
     private  LibroRepo libroRepo;
-
-    @Autowired
-    private AutorRepo autor;
-
-    @Autowired
-    private AutorServices autorServices;
-
     private final String error = "No se ha encontrado al Libro";
 
-    public Libro addLibro(Libro libro, String dni){
-        Autor autor = autorServices.findAutorByDni(dni);
-        libro.setAutor(autor);
+    @Autowired
+    public LibroServices(LibroRepo libroRepo) {
+        this.libroRepo = libroRepo;
+    }
+
+    public Libro addLibro(Libro libro){
         return libroRepo.save(libro);
     }
 
@@ -35,11 +26,11 @@ public class LibroServices {
         return libroRepo.findAll();
     }
 
-    public Libro findLibroById(int id){
+    public Libro findLibroById(Long id){
         return libroRepo.findLibroById(id).orElseThrow(() -> new IllegalArgumentException(error));
     }
 
-    public void deleteLibro(int id){
+    public void deleteLibro(Long id){
         libroRepo.deleteLibroById(id);
     }
 
@@ -51,7 +42,7 @@ public class LibroServices {
         return libroRepo.findLibroByAutorDni(dni);
     }
 
-    public List<Libro> findLibroByCategoriaId(int id){
+    public List<Libro> findLibroByCategoriaId(Long id){
         return libroRepo.findLibroByCategoriaId(id);
     }
 }

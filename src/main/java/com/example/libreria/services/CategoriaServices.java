@@ -28,7 +28,7 @@ import java.util.List;
             return categoriaRepo.findAll();
         }
 
-        public Categoria findCategoriaByDni(int id){
+        public Categoria findCategoriaById(Long id){
             return categoriaRepo.findCategoriaById(id).orElseThrow(() -> new IllegalArgumentException(error));
         }
 

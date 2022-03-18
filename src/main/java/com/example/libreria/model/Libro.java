@@ -21,7 +21,7 @@ public class Libro implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
-    private int id;
+    private Long id;
 
     @Getter
     @Setter
@@ -37,12 +37,13 @@ public class Libro implements Serializable {
     @Setter
     @ManyToOne
     @JoinColumn(name = "idAutor")
+    @Nullable
     private Autor autor;
 
     @Getter
     @Setter
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "idCategoria")
-    @Nullable
+    @NotNull
     private Categoria categoria;
 }

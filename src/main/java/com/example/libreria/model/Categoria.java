@@ -16,12 +16,14 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Categoria implements Serializable {
+
     @Getter
     @Setter
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Getter
     @Setter
     private String descripcion;
