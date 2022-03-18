@@ -33,8 +33,8 @@ public class LibroResource {
         return new ResponseEntity<>(newLibro, HttpStatus.CREATED);
     }
     @PutMapping("/update/{id}")
-    public ResponseEntity<Libro> updateLibro(@RequestBody Libro libro){
-        Libro updateLibro = libroServices.updateLibro(libro);
+    public ResponseEntity<Libro> updateLibro(@RequestBody Libro libro, Long id){
+        Libro updateLibro = libroServices.updateLibro(libro, id);
         return new ResponseEntity<>(updateLibro, HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")

@@ -35,8 +35,8 @@ public class AutorResource {
         return new ResponseEntity<>(newAutor, HttpStatus.CREATED);
     }
     @PutMapping("/update/{dni}")
-    public ResponseEntity<Autor> updateAutor(@RequestBody Autor autor){
-        Autor updateAutor = autorServices.updateAutor(autor);
+    public ResponseEntity<Autor> updateAutor(@RequestBody Autor autor, String dni){
+        Autor updateAutor = autorServices.updateAutor(autor, dni);
         return new ResponseEntity<>(updateAutor, HttpStatus.OK);
     }
     @DeleteMapping("/delete/{dni}")

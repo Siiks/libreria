@@ -34,8 +34,13 @@ public class LibroServices {
         libroRepo.deleteLibroById(id);
     }
 
-    public Libro updateLibro(Libro libro){
-        return libroRepo.save(libro);
+    public Libro updateLibro(Libro libro, Long id){
+        if (libroRepo.findLibroById(id).isPresent() == true){
+            return libroRepo.save(libro);
+        }else{
+            throw new IllegalArgumentException("El libro no existe");
+        }
+
     }
 
     public List<Libro> findLibroByAutorId(String dni){

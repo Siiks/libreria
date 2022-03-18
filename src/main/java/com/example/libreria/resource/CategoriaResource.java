@@ -34,12 +34,12 @@ public class CategoriaResource{
         return new ResponseEntity<>(newCategoria, HttpStatus.CREATED);
     }
     @PutMapping("/update/{id}")
-    public ResponseEntity<Categoria> updateCategoria(@RequestBody Categoria categoria){
-        Categoria updateCategoria = categoriaServices.updateCategoria(categoria);
+    public ResponseEntity<Categoria> updateCategoria(@RequestBody Categoria categoria,@PathVariable("id") Long id){
+        Categoria updateCategoria = categoriaServices.updateCategoria(categoria, id);
         return new ResponseEntity<>(updateCategoria, HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Categoria> deleteCategoria(@PathVariable("dni") int id){
+    public ResponseEntity<Categoria> deleteCategoria(@PathVariable("id") int id){
         categoriaServices.deleteCategoria(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

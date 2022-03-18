@@ -3,7 +3,9 @@ package com.example.libreria.services;
 import com.example.libreria.model.Categoria;
 
 import com.example.libreria.repo.CategoriaRepo;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.integration.IntegrationProperties;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -36,8 +38,13 @@ import java.util.List;
             categoriaRepo.deleteCategoriaById(id);
         }
 
-        public Categoria updateCategoria(Categoria categoria){
-            return categoriaRepo.save(categoria);
-        }
+        public Categoria updateCategoria(Categoria categoria, Long id){
+                if (categoriaRepo.findCategoriaById(id).isPresent() == true) {
+                        categoria.setId(id);
+                        return categoriaRepo.save(categoria);
+                }else {
+                    throw new IllegalArgumentException("No existe el libro");
+                }
+            }
     }
 

@@ -35,7 +35,11 @@ public class AutorServices {
         autorRepo.deleteAutorByDni(dni);
     }
 
-    public Autor updateAutor(Autor autor){
-        return autorRepo.save(autor);
+    public Autor updateAutor(Autor autor, String dni){
+        if (autorRepo.findAutorByDni(dni).isPresent() == true) {
+            return autorRepo.save(autor);
+        }else{
+            throw  new IllegalArgumentException("El autor no existe");
+        }
     }
 }
