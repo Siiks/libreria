@@ -1,5 +1,6 @@
 package com.example.libreria.services;
 
+import com.example.libreria.model.Autor;
 import com.example.libreria.model.Libro;
 import com.example.libreria.repo.LibroRepo;
 import org.springframework.beans.factory.annotation.Autowired;

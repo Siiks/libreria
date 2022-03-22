@@ -33,7 +33,7 @@ public class CategoriaResource{
         Categoria newCategoria = categoriaServices.addCategoria(categoria);
         return new ResponseEntity<>(newCategoria, HttpStatus.CREATED);
     }
-    @PutMapping("/update/{id}")
+    @PutMapping("/update")
     public ResponseEntity<Categoria> updateCategoria(@RequestBody Categoria categoria,@PathVariable("id") Long id){
         Categoria updateCategoria = categoriaServices.updateCategoria(categoria, id);
         return new ResponseEntity<>(updateCategoria, HttpStatus.OK);
